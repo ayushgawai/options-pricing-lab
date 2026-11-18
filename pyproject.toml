@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "options-pricing-lab"
+version = "0.1.0"
+description = "Self-contained options pricing, implied-vol, vol-surface and market-making simulation toolkit (Black-Scholes + Monte Carlo)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["numpy", "scipy"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+options-lab = "options_lab.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["options_lab*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
